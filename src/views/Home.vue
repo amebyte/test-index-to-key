@@ -6,6 +6,12 @@
       <button @click="add('left', index)">左边添加</button>
       <button @click="add('right', index)">右边添加</button>
     </div>
+    <SlotColumn v-for="(item, index) in data" :key="item.id">
+      {{index}}-{{item.id}}-SlotColumn
+      <button @click="add('left', index)">左边添加</button>
+      <button @click="add('right', index)">右边添加</button>
+    </SlotColumn>
+    <RightMouseButton></RightMouseButton>
     <el-table
     :data="data"
     style="width: 100%">
@@ -24,11 +30,15 @@
 // @ is an alias to /src
 import HelloWorld from '@/components/HelloWorld.vue'
 import TableColumn1 from '@/components/TableColumn1.vue'
+import SlotColumn from '@/components/SlotColumn.vue'
+import RightMouseButton from '@/components/RightMouseButton.vue'
 
 export default {
   name: 'home',
   components: {
-    HelloWorld
+    HelloWorld,
+    SlotColumn,
+    RightMouseButton
   },
   data() {
     return {
